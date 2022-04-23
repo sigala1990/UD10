@@ -1,5 +1,9 @@
 package act5;
 
+import java.util.Scanner;
+
+import ExceptionCustom.ExceptionCustom;
+
 public class Password {
 
 	/*
@@ -47,7 +51,7 @@ public class Password {
 		return (int) (Math.random() * (max - min) + min);
 	}
 
-	public boolean esFuerte() {
+	public boolean esFuerte() {//controlamos si la pasword tiene  mayus mins y nnumeros
 		int contadorMayus = 0, contadorMin = 0, contadorNum = 0;
 		for (int i = 0; i < password.length(); i++) {
 			char letra = password.charAt(i);
@@ -66,8 +70,27 @@ public class Password {
 		return false;
 	}
 	
-	
 
+	public void comprobarPasswd()  throws ExceptionCustom {//lanzamiento exception en el metodo
+		Scanner sc = new Scanner(System.in);
+		boolean acertada = false;
+		int contador = 0;
+		while(!acertada && contador < 3) {
+			System.out.println("Introduce la pwd");
+			String text = sc.nextLine();
+			if(text.equals(password)) {//si coincide
+				acertada = true;
+				System.out.println("Logueado!");
+			}	
+			contador++;
+			
+		}
+		if(contador == 3 && !acertada) {//intentos finalizados y no la a acertado
+				throw new ExceptionCustom(6);
+			}
+			
+		}
+	
 	public int getLongitud() {
 		return longitud;
 	}

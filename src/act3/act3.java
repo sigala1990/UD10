@@ -1,5 +1,7 @@
 package act3;
 
+import ExceptionCustom.ExceptionCustom;
+
 public class act3 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -7,7 +9,7 @@ public class act3 {
 		ParImpar num = new ParImpar();
 		try {
 			num.controlarParImpar();	
-		}catch (MiExceptionAct3 e) {
+		}catch (ExceptionCustom e) {
 			// TODO: handle exception
 			e.getMessage();
 		}

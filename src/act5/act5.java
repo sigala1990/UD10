@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import ExceptionCustom.ExceptionCustom;
+
 public class act5 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Password pwd = new Password();
+		Password pwd = new Password(4);
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Introduce el tamaño de la pass");
 		int valorSc = sc.nextInt();
@@ -24,6 +26,17 @@ public class act5 {
 		for (int i = 0; i < list.size(); i++) {
 			System.out.println((i+1)+" "+list.get(i).getPassword() +" "+ listBoolean.get(i) );
 		}
+		
+		try {
+			System.out.println("\n------------------\nEscribre la password\n"+pwd.getPassword()
+					);
+			
+			pwd.comprobarPasswd();	
+		}catch (ExceptionCustom e) {
+			// TODO: handle exception
+			e.getMessage();
+		}
+		
 	}
 
 }
